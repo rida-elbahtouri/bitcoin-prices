@@ -5,23 +5,39 @@ const bitcoinvalue = document.getElementById("bitcoin-value")
 
 
 fetch("/chart/year")
-        .then((data) => data.json())
-        .then((data) => {
-            let keys = [];
-            let values = []
-            for(let k in data){
-                keys.push(k);
-                values.push(parseInt(data[k],10))
-            } 
-            drawChart(keys,values)
-        });
+    .then((data) => data.json())
+    .then((data) => {
+        let keys = [];
+        let values = []
+        for(let k in data){
+            keys.push(k);
+            values.push(parseInt(data[k],10))
+        } 
+    drawChart(keys,values)
+});
 
-        
-fetch("/getvalue")
+    fetch("/getvalue")
+    .then((data) => data.json())
+    .then((data) => {
+        bitcoinvalue.innerHTML = data
+    }).catch(()=> { 
+        bitcoinvalue.innerHTML = "loading..."
+    });
+
+    setInterval(function() {
+
+        let oldvalue = 0
+        fetch("/getvalue")
         .then((data) => data.json())
         .then((data) => {
+           oldvalue = data
             bitcoinvalue.innerHTML = data
+        }).catch(()=> {
+            bitcoinvalue.innerHTML = oldvalue
         });
+    }, 60 * 1000);
+        
+
 
 const drawChart = (lab,val) =>{
     var myChart = new Chart(chartcanva, {
