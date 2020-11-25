@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-
-  get "/bitcoin", to: "bitcoins#bitcoin"
-  get "/chart/:timeper", to: "bitcoins#chart"
-  get "/getvalue", to: "bitcoins#bitcoinvalue"
+  root 'bitcoins#bitcoin'
+  get '/chart/:timeper', to: 'bitcoins#chart'
+  get '/getvalue', to: 'bitcoins#bitcoinvalue'
 end
