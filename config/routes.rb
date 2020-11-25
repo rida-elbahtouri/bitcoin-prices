@@ -3,4 +3,5 @@ Rails.application.routes.draw do
 
   get "/bitcoin", to: "bitcoins#bitcoin"
   get "/chart/:timeper", to: "bitcoins#chart"
+  get "/getvalue", to: "bitcoins#bitcoinvalue"
 end
