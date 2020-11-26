@@ -1,0 +1,25 @@
+$blue : rgb(87, 87, 211);
+.bitcoin-val {
+    color: $blue;
+    font-size: 36px;
+    text-align: center;
+}
+.btn-group {
+    text-align: center;
+}
+.btn-time {
+    border: none;
+    background-color: $blue;
+    color: rgb(253, 253, 253);
+    font-size: 24px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid $blue;
+    margin-left: 10px;
+}
+
+.btn-time:hover {
+    background-color:rgb(253, 253, 253);
+    color: $blue ;
+}
